@@ -1,0 +1,19 @@
+import twitter4j.*;
+
+public class TwitterSpout {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Twitter twitter = TwitterFactory.getSingleton();
+		Query query = new Query("source:twitter4j meryl");
+		QueryResult result = twitter.search(query);
+		for (Status status: result.getTweets()){
+			System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+		}
+
+	}
+
+}

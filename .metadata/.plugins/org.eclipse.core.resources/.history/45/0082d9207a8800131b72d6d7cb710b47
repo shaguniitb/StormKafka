@@ -1,0 +1,66 @@
+import twitter4j.*;
+import twitter4j.conf.ConfigurationBuilder;
+
+public class TwitterSpout {
+
+	/**
+	 * @param args
+	 * @throws TwitterException 
+	 */
+	
+	public static void ProcessTweet() throws TwitterException {
+		Twitter twitter = TwitterFactory.getSingleton();
+		Query query = new Query("source:twitter4j meryl");
+		QueryResult result = twitter.search(query);
+		for (Status status: result.getTweets()){
+			System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+		}		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
+		StatusListener listener = new StatusListener() {
+			
+			@Override
+			public void onException(Exception arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onTrackLimitationNotice(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onStatus(Status arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onStallWarning(StallWarning arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onScrubGeo(long arg0, long arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onDeletionNotice(StatusDeletionNotice arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		
+
+
+	}
+
+}

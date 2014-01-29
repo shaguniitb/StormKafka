@@ -1,0 +1,14 @@
+import twitter4j.*;
+
+public class TwitterSpout {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Twitter twitter = TwitterFactory.
+
+	}
+
+}
